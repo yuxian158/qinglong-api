@@ -4,7 +4,7 @@
 
 具体文档
 
-https://yuxian158.github.io/ql_api/index.html
+https://yuxian158.github.io/ql_api/index.html](https://yuxian158.github.io/qinglong-api/)
 
 使用方法
 
