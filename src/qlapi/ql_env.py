@@ -1,6 +1,3 @@
-"""
-青龙环境变量操作
-"""
 import json
 
 from .ql import ql_api
@@ -8,7 +5,24 @@ from .ql import ql_api
 
 class qlenv(ql_api):
     """
-    青龙环境环境变量接口
+    青龙面板api环境变量模块
+
+    url: 青龙面板IP地址(不包含http://)
+
+    post: 青龙面板端口
+
+    client_id: 青龙面板openapi登录用户名
+
+    client_secret: 青龙面板openapi登录密码
+
+    Usage::
+        >>> ql_env = qlenv(
+            url="12.22.43.23",
+            port=5700,
+            client_id="admin",
+            client_secret="abcdefg_",
+        )
+        ql_env.list()
     """
     def __init__(self, url: str, post: int, client_id: str, client_secret: str):
         super().__init__(url, post, client_id, client_secret)
@@ -32,7 +46,7 @@ class qlenv(ql_api):
         删除环境变量
 
         :param id: 环境变量ID
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs"
         data = json.dumps([id])
@@ -63,7 +77,7 @@ class qlenv(ql_api):
         :param name: 新名称
         :param id: 环境变量id
         :param remarks: 新备注
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs"
         data = {"value": value, "name": name, "remarks": remarks, "id": id}
@@ -72,12 +86,12 @@ class qlenv(ql_api):
         res = self.s.put(url=url, data=data).json()
         return res
 
-    def get_all(self):
+    def list(self):
         """
         获取所有环境变量
 
         :param id: 环境变量ID
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs/"
         res = self.s.get(url=url).json()
@@ -88,7 +102,7 @@ class qlenv(ql_api):
         根据环境变量ID获取环境变量
 
         :param id: 环境变量ID
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs/{id}"
         res = self.s.get(url=url).json()
@@ -99,7 +113,7 @@ class qlenv(ql_api):
         启用环境变量
 
         :param id_list: 环境变量ID列表
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs/enable"
         data = json.dumps(id_list)
@@ -111,7 +125,7 @@ class qlenv(ql_api):
         禁用环境变量
 
         :param id_list: 环境变量ID列表
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs/disable"
         data = json.dumps(id_list)
@@ -124,7 +138,7 @@ class qlenv(ql_api):
 
         :param id: id
         :param name: name
-        :return: 响应结果
+        :return: 响应结果json
         """
         url = f"{self.url}/open/envs/name"
         data = json.dumps({"ids": id, "name": name})

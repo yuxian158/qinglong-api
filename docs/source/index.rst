@@ -19,6 +19,9 @@
    config
    log
    task
+   system
+   script
+   dependence
 
 
 Indices and tables

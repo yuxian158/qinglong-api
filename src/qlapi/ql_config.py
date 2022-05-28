@@ -5,7 +5,7 @@ from .ql import ql_api
 
 class qlconfig(ql_api):
     """
-    青龙面板配置文件模块
+    青龙面板api配置文件模块
 
     url: 青龙面板IP地址(不包含http://)
 
