@@ -5,7 +5,24 @@ from .ql import ql_api
 
 class qlconfig(ql_api):
     """
-    青龙面板配置文件
+    青龙面板配置文件模块
+
+    url: 青龙面板IP地址(不包含http://)
+
+    post: 青龙面板端口
+
+    client_id: 青龙面板openapi登录用户名
+
+    client_secret: 青龙面板openapi登录密码
+
+    Usage::
+        >>> ql_config = qlconfig(
+            url="12.22.43.23",
+            port=5700,
+            client_id="admin",
+            client_secret="abcdefg_",
+        )
+        ql_config.list()
     """
     def __init__(self, url: str, post: int, client_id: str, client_secret: str):
         super().__init__(url, post, client_id, client_secret)
