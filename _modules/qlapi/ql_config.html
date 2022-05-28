@@ -198,7 +198,24 @@
 
 <div class="viewcode-block" id="qlconfig"><a class="viewcode-back" href="../../config.html#qlapi.qlconfig">[文档]</a><span class="k">class</span> <span class="nc">qlconfig</span><span class="p">(</span><span class="n">ql_api</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    青龙面板配置文件</span>
+<span class="sd">    青龙面板配置文件模块</span>
+
+<span class="sd">    url: 青龙面板IP地址(不包含http://)</span>
+
+<span class="sd">    post: 青龙面板端口</span>
+
+<span class="sd">    client_id: 青龙面板openapi登录用户名</span>
+
+<span class="sd">    client_secret: 青龙面板openapi登录密码</span>
+
+<span class="sd">    Usage::</span>
+<span class="sd">        &gt;&gt;&gt; ql_config = qlconfig(</span>
+<span class="sd">            url="12.22.43.23",</span>
+<span class="sd">            port=5700,</span>
+<span class="sd">            client_id="admin",</span>
+<span class="sd">            client_secret="abcdefg_",</span>
+<span class="sd">        )</span>
+<span class="sd">        ql_config.list()</span>
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>

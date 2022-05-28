@@ -196,7 +196,23 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="qlapi.qlconfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qlconfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig" title="永久链接至目标">#</a></dt>
-<dd><p>青龙面板配置文件</p>
+<dd><p>青龙面板配置文件模块</p>
+<p>url: 青龙面板IP地址(不包含http://)</p>
+<p>post: 青龙面板端口</p>
+<p>client_id: 青龙面板openapi登录用户名</p>
+<p>client_secret: 青龙面板openapi登录密码</p>
+<dl>
+<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_config</span> <span class="o">=</span> <span class="n">qlconfig</span><span class="p">(</span>
+<span class="go">    url="12.22.43.23",</span>
+<span class="go">    port=5700,</span>
+<span class="go">    client_id="admin",</span>
+<span class="go">    client_secret="abcdefg_",</span>
+<span class="go">)</span>
+<span class="go">ql_config.list()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="qlapi.qlconfig.list">
 <span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig.list"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig.list" title="永久链接至目标">#</a></dt>
