@@ -154,10 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../env.html">qlenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../config.html">qlconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../log.html">qllog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">qltask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">环境变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config.html">配置文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../log.html">日志</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../task.html">定时任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../system.html">系统管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../script.html">脚本管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dependence.html">依赖管理</a></li>
 </ul>
 
 </div>
@@ -198,7 +201,24 @@
 
 <div class="viewcode-block" id="qllog"><a class="viewcode-back" href="../../log.html#qlapi.qllog">[文档]</a><span class="k">class</span> <span class="nc">qllog</span><span class="p">(</span><span class="n">ql_api</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    青龙面板日志接口</span>
+<span class="sd">    青龙面板api日志模块</span>
+
+<span class="sd">    url: 青龙面板IP地址(不包含http://)</span>
+
+<span class="sd">    post: 青龙面板端口</span>
+
+<span class="sd">    client_id: 青龙面板openapi登录用户名</span>
+
+<span class="sd">    client_secret: 青龙面板openapi登录密码</span>
+
+<span class="sd">    Usage::</span>
+<span class="sd">        &gt;&gt;&gt; ql_log = qllog(</span>
+<span class="sd">            url="12.22.43.23",</span>
+<span class="sd">            port=5700,</span>
+<span class="sd">            client_id="admin",</span>
+<span class="sd">            client_secret="abcdefg_",</span>
+<span class="sd">        )</span>
+<span class="sd">        ql_log.list()</span>
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>

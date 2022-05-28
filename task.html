@@ -2,10 +2,10 @@
 <html class="no-js" lang="zh_cn">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="prev" title="qllog" href="log.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="系统管理" href="system.html" /><link rel="prev" title="日志" href="log.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>qltask - 青龙APISDK 0.0.1 文档</title>
+        <title>定时任务 - 青龙APISDK 0.0.1 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -154,10 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="env.html">qlenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">qlconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="log.html">qllog</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">qltask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env.html">环境变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">配置文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">日志</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">定时任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">系统管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script.html">脚本管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependence.html">依赖管理</a></li>
 </ul>
 
 </div>
@@ -190,16 +193,32 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="qltask">
-<h1>qltask<a class="headerlink" href="#qltask" title="永久链接至标题">#</a></h1>
+          <div class="section" id="id1">
+<h1>定时任务<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>管理定时任务模块</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qlapi.qltask">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qltask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_task.html#qltask"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qltask" title="永久链接至目标">#</a></dt>
-<dd><p>青龙面板任务接口</p>
+<dd><p>青龙面板api定时任务模块</p>
+<p>url: 青龙面板IP地址(不包含http://)</p>
+<p>post: 青龙面板端口</p>
+<p>client_id: 青龙面板openapi登录用户名</p>
+<p>client_secret: 青龙面板openapi登录密码</p>
+<dl>
+<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_task</span> <span class="o">=</span> <span class="n">qltask</span><span class="p">(</span>
+<span class="go">    url="12.22.43.23",</span>
+<span class="go">    port=5700,</span>
+<span class="go">    client_id="admin",</span>
+<span class="go">    client_secret="abcdefg_",</span>
+<span class="go">)</span>
+<span class="go">ql_task.list()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qltask.task_add">
-<span class="sig-name descname"><span class="pre">task_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_task.html#qltask.task_add"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qltask.task_add" title="永久链接至目标">#</a></dt>
+<dt class="sig sig-object py" id="qlapi.qltask.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_task.html#qltask.add"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qltask.add" title="永久链接至目标">#</a></dt>
 <dd><p>添加定时任务,返回相应状态码以及响应结果或任务ID</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数</dt>
@@ -211,8 +230,9 @@
 </ul>
 </dd>
 <dt class="field-even">返回</dt>
-<dd class="field-even"><p>成功返回示例 {‘code’: 200, ‘data’: 47}
-失败返回示例 {‘code’: 500, ‘data’: ‘Validation error’}</p>
+<dd class="field-even"><p><p>成功返回示例 {‘code’: 200, ‘data’: 47}</p>
+<p>失败返回示例 {‘code’: 500, ‘data’: ‘Validation error’}</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -237,7 +257,15 @@
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="system.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">系统管理</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="log.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -245,7 +273,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">qllog</div>
+                <div class="title">日志</div>
                 
               </div>
             </a>

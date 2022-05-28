@@ -154,10 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../env.html">qlenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../config.html">qlconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../log.html">qllog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">qltask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../env.html">环境变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config.html">配置文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../log.html">日志</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../task.html">定时任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../system.html">系统管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../script.html">脚本管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dependence.html">依赖管理</a></li>
 </ul>
 
 </div>
@@ -191,17 +194,31 @@
         </div>
         <article role="main">
           <h1>qlapi.ql_env 源代码</h1><div class="highlight"><pre>
-<span></span><span class="sd">"""</span>
-<span class="sd">青龙环境变量操作</span>
-<span class="sd">"""</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">from</span> <span class="nn">.ql</span> <span class="kn">import</span> <span class="n">ql_api</span>
 
 
 <div class="viewcode-block" id="qlenv"><a class="viewcode-back" href="../../env.html#qlapi.qlenv">[文档]</a><span class="k">class</span> <span class="nc">qlenv</span><span class="p">(</span><span class="n">ql_api</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    青龙环境环境变量接口</span>
+<span class="sd">    青龙面板api环境变量模块</span>
+
+<span class="sd">    url: 青龙面板IP地址(不包含http://)</span>
+
+<span class="sd">    post: 青龙面板端口</span>
+
+<span class="sd">    client_id: 青龙面板openapi登录用户名</span>
+
+<span class="sd">    client_secret: 青龙面板openapi登录密码</span>
+
+<span class="sd">    Usage::</span>
+<span class="sd">        &gt;&gt;&gt; ql_env = qlenv(</span>
+<span class="sd">            url="12.22.43.23",</span>
+<span class="sd">            port=5700,</span>
+<span class="sd">            client_id="admin",</span>
+<span class="sd">            client_secret="abcdefg_",</span>
+<span class="sd">        )</span>
+<span class="sd">        ql_env.list()</span>
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
@@ -225,7 +242,7 @@
 <span class="sd">        删除环境变量</span>
 
 <span class="sd">        :param id: 环境变量ID</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs"</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="nb">id</span><span class="p">])</span>
@@ -256,7 +273,7 @@
 <span class="sd">        :param name: 新名称</span>
 <span class="sd">        :param id: 环境变量id</span>
 <span class="sd">        :param remarks: 新备注</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs"</span>
         <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"remarks"</span><span class="p">:</span> <span class="n">remarks</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">:</span> <span class="nb">id</span><span class="p">}</span>
@@ -265,12 +282,12 @@
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="qlenv.get_all"><a class="viewcode-back" href="../../env.html#qlapi.qlenv.get_all">[文档]</a>    <span class="k">def</span> <span class="nf">get_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="qlenv.list"><a class="viewcode-back" href="../../env.html#qlapi.qlenv.list">[文档]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">"""</span>
 <span class="sd">        获取所有环境变量</span>
 
 <span class="sd">        :param id: 环境变量ID</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs/"</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -281,7 +298,7 @@
 <span class="sd">        根据环境变量ID获取环境变量</span>
 
 <span class="sd">        :param id: 环境变量ID</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs/</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">"</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -292,7 +309,7 @@
 <span class="sd">        启用环境变量</span>
 
 <span class="sd">        :param id_list: 环境变量ID列表</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs/enable"</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">id_list</span><span class="p">)</span>
@@ -304,7 +321,7 @@
 <span class="sd">        禁用环境变量</span>
 
 <span class="sd">        :param id_list: 环境变量ID列表</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs/disable"</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">id_list</span><span class="p">)</span>
@@ -317,7 +334,7 @@
 
 <span class="sd">        :param id: id</span>
 <span class="sd">        :param name: name</span>
-<span class="sd">        :return: 响应结果</span>
+<span class="sd">        :return: 响应结果json</span>
 <span class="sd">        """</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/envs/name"</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"ids"</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">})</span>

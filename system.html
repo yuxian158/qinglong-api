@@ -2,10 +2,10 @@
 <html class="no-js" lang="zh_cn">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="日志" href="log.html" /><link rel="prev" title="环境变量" href="env.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="脚本管理" href="script.html" /><link rel="prev" title="定时任务" href="task.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>配置文件 - 青龙APISDK 0.0.1 文档</title>
+        <title>系统管理 - 青龙APISDK 0.0.1 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -155,10 +155,10 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="env.html">环境变量</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">配置文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">配置文件</a></li>
 <li class="toctree-l1"><a class="reference internal" href="log.html">日志</a></li>
 <li class="toctree-l1"><a class="reference internal" href="task.html">定时任务</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system.html">系统管理</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">系统管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="script.html">脚本管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dependence.html">依赖管理</a></li>
 </ul>
@@ -194,32 +194,45 @@
         </div>
         <article role="main">
           <div class="section" id="id1">
-<h1>配置文件<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>管理青龙环境变量模块</p>
+<h1>系统管理<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p>系统管理模块</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="qlapi.qlconfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qlconfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig" title="永久链接至目标">#</a></dt>
-<dd><p>青龙面板api配置文件模块</p>
+<dt class="sig sig-object py" id="qlapi.qlsystem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qlsystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem" title="永久链接至目标">#</a></dt>
+<dd><p>青龙面板api系统模块</p>
 <p>url: 青龙面板IP地址(不包含http://)</p>
 <p>post: 青龙面板端口</p>
 <p>client_id: 青龙面板openapi登录用户名</p>
 <p>client_secret: 青龙面板openapi登录密码</p>
 <dl>
-<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_config</span> <span class="o">=</span> <span class="n">qlconfig</span><span class="p">(</span>
+<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_system</span> <span class="o">=</span> <span class="n">qlsystem</span><span class="p">(</span>
 <span class="go">    url="12.22.43.23",</span>
 <span class="go">    port=5700,</span>
 <span class="go">    client_id="admin",</span>
 <span class="go">    client_secret="abcdefg_",</span>
 <span class="go">)</span>
-<span class="go">ql_config.list()</span>
+<span class="go">ql_system.version()</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlconfig.list">
-<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig.list"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig.list" title="永久链接至目标">#</a></dt>
-<dd><p>获取配置文件列表</p>
+<dt class="sig sig-object py" id="qlapi.qlsystem.change_log_remove">
+<span class="sig-name descname"><span class="pre">change_log_remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem.change_log_remove"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem.change_log_remove" title="永久链接至目标">#</a></dt>
+<dd><p>修改清除面板日志频率</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>log_remove</strong> – 日志清除频率,单位天</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>源相应json</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlsystem.get_log_remove">
+<span class="sig-name descname"><span class="pre">get_log_remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem.get_log_remove"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem.get_log_remove" title="永久链接至目标">#</a></dt>
+<dd><p>获取清除面板日志频率</p>
 <dl class="field-list simple">
 <dt class="field-odd">返回</dt>
 <dd class="field-odd"><p>源相应json</p>
@@ -227,31 +240,32 @@
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlconfig.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig.save"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig.save" title="永久链接至目标">#</a></dt>
-<dd><p>保存配置文件</p>
+<dt class="sig sig-object py" id="qlapi.qlsystem.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem.update"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem.update" title="永久链接至目标">#</a></dt>
+<dd><p>更新面板</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – 文件名</p></li>
-<li><p><strong>content</strong> – 值</p></li>
-</ul>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>源相应json</p>
+<dt class="field-odd">返回</dt>
+<dd class="field-odd"><p>源相应json</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlconfig.value">
-<span class="sig-name descname"><span class="pre">value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_config.html#qlconfig.value"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlconfig.value" title="永久链接至目标">#</a></dt>
-<dd><p>获取配置文件内容</p>
+<dt class="sig sig-object py" id="qlapi.qlsystem.update_check">
+<span class="sig-name descname"><span class="pre">update_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem.update_check"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem.update_check" title="永久链接至目标">#</a></dt>
+<dd><p>检查面板更新</p>
 <dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>file_name</strong> – 文件名</p>
+<dt class="field-odd">返回</dt>
+<dd class="field-odd"><p>源相应json</p>
 </dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>源相应json</p>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlsystem.version">
+<span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_system.html#qlsystem.version"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlsystem.version" title="永久链接至目标">#</a></dt>
+<dd><p>获取面板版本信息</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回</dt>
+<dd class="field-odd"><p>源相应json</p>
 </dd>
 </dl>
 </dd></dl>
@@ -263,23 +277,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="log.html">
+          <a class="next-page" href="script.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">日志</div>
+                <div class="title">脚本管理</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="env.html">
+          <a class="prev-page" href="task.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">环境变量</div>
+                <div class="title">定时任务</div>
                 
               </div>
             </a>

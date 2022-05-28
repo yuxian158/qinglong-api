@@ -2,10 +2,10 @@
 <html class="no-js" lang="zh_cn">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="配置文件" href="config.html" /><link rel="prev" title="青龙API接口SDK" href="index.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="依赖管理" href="dependence.html" /><link rel="prev" title="系统管理" href="system.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>环境变量 - 青龙APISDK 0.0.1 文档</title>
+        <title>脚本管理 - 青龙APISDK 0.0.1 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -154,12 +154,12 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">环境变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env.html">环境变量</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">配置文件</a></li>
 <li class="toctree-l1"><a class="reference internal" href="log.html">日志</a></li>
 <li class="toctree-l1"><a class="reference internal" href="task.html">定时任务</a></li>
 <li class="toctree-l1"><a class="reference internal" href="system.html">系统管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="script.html">脚本管理</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">脚本管理</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dependence.html">依赖管理</a></li>
 </ul>
 
@@ -194,153 +194,144 @@
         </div>
         <article role="main">
           <div class="section" id="id1">
-<h1>环境变量<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
-<p>管理青龙环境变量模块</p>
+<h1>脚本管理<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
+<p>脚本管理模块</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="qlapi.qlenv">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qlenv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv" title="永久链接至目标">#</a></dt>
-<dd><p>青龙面板api环境变量模块</p>
+<dt class="sig sig-object py" id="qlapi.qlscript">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qlscript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript" title="永久链接至目标">#</a></dt>
+<dd><p>青龙面板api脚本管理模块</p>
 <p>url: 青龙面板IP地址(不包含http://)</p>
 <p>post: 青龙面板端口</p>
 <p>client_id: 青龙面板openapi登录用户名</p>
 <p>client_secret: 青龙面板openapi登录密码</p>
 <dl>
-<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_env</span> <span class="o">=</span> <span class="n">qlenv</span><span class="p">(</span>
+<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_script</span> <span class="o">=</span> <span class="n">qlscript</span><span class="p">(</span>
 <span class="go">    url="12.22.43.23",</span>
 <span class="go">    port=5700,</span>
 <span class="go">    client_id="admin",</span>
 <span class="go">    client_secret="abcdefg_",</span>
 <span class="go">)</span>
-<span class="go">ql_env.list()</span>
+<span class="go">ql_script.get_all()</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.add">
-<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.add"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.add" title="永久链接至目标">#</a></dt>
-<dd><p>添加环境变量</p>
+<dt class="sig sig-object py" id="qlapi.qlscript.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">originFilename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.add"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.add" title="永久链接至目标">#</a></dt>
+<dd><p>添加脚本</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>new_env</strong> – 新环境变量名</p></li>
-<li><p><strong>value</strong> – 新环境变量值</p></li>
+<li><p><strong>filename</strong> – 脚本名称</p></li>
+<li><p><strong>path</strong> – 脚本路径</p></li>
+<li><p><strong>content</strong> – 脚本内容</p></li>
+<li><p><strong>originFilename</strong> – 脚本原始名称</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
+<dd class="field-even"><p>源响应json</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.delete"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.delete" title="永久链接至目标">#</a></dt>
-<dd><p>删除环境变量</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>id</strong> – 环境变量ID</p>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.disable">
-<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.disable"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.disable" title="永久链接至目标">#</a></dt>
-<dd><p>禁用环境变量</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>id_list</strong> – 环境变量ID列表</p>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.enable">
-<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.enable"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.enable" title="永久链接至目标">#</a></dt>
-<dd><p>启用环境变量</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>id_list</strong> – 环境变量ID列表</p>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.get_by_id">
-<span class="sig-name descname"><span class="pre">get_by_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.get_by_id"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.get_by_id" title="永久链接至目标">#</a></dt>
-<dd><p>根据环境变量ID获取环境变量</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>id</strong> – 环境变量ID</p>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.list">
-<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.list"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.list" title="永久链接至目标">#</a></dt>
-<dd><p>获取所有环境变量</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>id</strong> – 环境变量ID</p>
-</dd>
-<dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.rename">
-<span class="sig-name descname"><span class="pre">rename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.rename"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.rename" title="永久链接至目标">#</a></dt>
-<dd><p>修改环境变量名</p>
+<dt class="sig sig-object py" id="qlapi.qlscript.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.delete"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.delete" title="永久链接至目标">#</a></dt>
+<dd><p>删除脚本</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> – id</p></li>
-<li><p><strong>name</strong> – name</p></li>
+<li><p><strong>path</strong> – 脚本路径</p></li>
+<li><p><strong>filename</strong> – 脚本名称</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
+<dd class="field-even"><p>源响应json</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.search"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.search" title="永久链接至目标">#</a></dt>
-<dd><p>获取环境变量</p>
+<dt class="sig sig-object py" id="qlapi.qlscript.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.download"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.download" title="永久链接至目标">#</a></dt>
+<dd><p>下载脚本</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数</dt>
-<dd class="field-odd"><p><strong>env</strong> – 环境变量名</p>
+<dd class="field-odd"><p><strong>filename</strong> – 脚本名称</p>
 </dd>
 <dt class="field-even">返回</dt>
-<dd class="field-even"><p>zip(环境变量ID,环境变量值) 使用for(id,value) in get_env(env)</p>
+<dd class="field-even"><p>源响应json</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="qlapi.qlenv.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remarks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_env.html#qlenv.update"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlenv.update" title="永久链接至目标">#</a></dt>
-<dd><p>更新环境变量</p>
+<dt class="sig sig-object py" id="qlapi.qlscript.get_all">
+<span class="sig-name descname"><span class="pre">get_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.get_all"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.get_all" title="永久链接至目标">#</a></dt>
+<dd><p>获取所有脚本列表</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回</dt>
+<dd class="field-odd"><p>源响应json</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlscript.get_script">
+<span class="sig-name descname"><span class="pre">get_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.get_script"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.get_script" title="永久链接至目标">#</a></dt>
+<dd><p>获取脚本详情</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><p><strong>name</strong> – 脚本名称</p>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>源响应json</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlscript.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.run"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.run" title="永久链接至目标">#</a></dt>
+<dd><p>运行脚本</p>
 <dl class="field-list simple">
 <dt class="field-odd">参数</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> – 新值</p></li>
-<li><p><strong>name</strong> – 新名称</p></li>
-<li><p><strong>id</strong> – 环境变量id</p></li>
-<li><p><strong>remarks</strong> – 新备注</p></li>
+<li><p><strong>path</strong> – 脚本路径</p></li>
+<li><p><strong>filename</strong> – 脚本名称</p></li>
 </ul>
 </dd>
 <dt class="field-even">返回</dt>
-<dd class="field-even"><p>响应结果json</p>
+<dd class="field-even"><p>源响应json</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlscript.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.stop"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.stop" title="永久链接至目标">#</a></dt>
+<dd><p>停止脚本</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – 脚本路径</p></li>
+<li><p><strong>filename</strong> – 脚本名称</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>源响应json</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="qlapi.qlscript.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/qlapi/ql_script.html#qlscript.update"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qlscript.update" title="永久链接至目标">#</a></dt>
+<dd><p>更新脚本</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> – 脚本名称</p></li>
+<li><p><strong>path</strong> – 脚本路径</p></li>
+<li><p><strong>content</strong> – 脚本内容</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回</dt>
+<dd class="field-even"><p>源响应json</p>
 </dd>
 </dl>
 </dd></dl>
@@ -352,23 +343,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="config.html">
+          <a class="next-page" href="dependence.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">配置文件</div>
+                <div class="title">依赖管理</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="system.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">系统管理</div>
                 
               </div>
             </a>

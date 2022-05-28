@@ -2,10 +2,10 @@
 <html class="no-js" lang="zh_cn">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="qltask" href="task.html" /><link rel="prev" title="qlconfig" href="config.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="genindex.html" /><link rel="search" title="搜索" href="search.html" /><link rel="next" title="定时任务" href="task.html" /><link rel="prev" title="配置文件" href="config.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>qllog - 青龙APISDK 0.0.1 文档</title>
+        <title>日志 - 青龙APISDK 0.0.1 文档</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -154,10 +154,13 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="env.html">qlenv</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config.html">qlconfig</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">qllog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="task.html">qltask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env.html">环境变量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">配置文件</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">日志</a></li>
+<li class="toctree-l1"><a class="reference internal" href="task.html">定时任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">系统管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="script.html">脚本管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependence.html">依赖管理</a></li>
 </ul>
 
 </div>
@@ -190,13 +193,29 @@
           </label>
         </div>
         <article role="main">
-          <div class="section" id="qllog">
-<h1>qllog<a class="headerlink" href="#qllog" title="永久链接至标题">#</a></h1>
+          <div class="section" id="id1">
+<h1>日志<a class="headerlink" href="#id1" title="永久链接至标题">#</a></h1>
 <p>管理青龙日志模块</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="qlapi.qllog">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">qlapi.</span></span><span class="sig-name descname"><span class="pre">qllog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_log.html#qllog"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qllog" title="永久链接至目标">#</a></dt>
-<dd><p>青龙面板日志接口</p>
+<dd><p>青龙面板api日志模块</p>
+<p>url: 青龙面板IP地址(不包含http://)</p>
+<p>post: 青龙面板端口</p>
+<p>client_id: 青龙面板openapi登录用户名</p>
+<p>client_secret: 青龙面板openapi登录密码</p>
+<dl>
+<dt>Usage::</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ql_log</span> <span class="o">=</span> <span class="n">qllog</span><span class="p">(</span>
+<span class="go">    url="12.22.43.23",</span>
+<span class="go">    port=5700,</span>
+<span class="go">    client_id="admin",</span>
+<span class="go">    client_secret="abcdefg_",</span>
+<span class="go">)</span>
+<span class="go">ql_log.list()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="qlapi.qllog.list">
 <span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qlapi/ql_log.html#qllog.list"><span class="viewcode-link"><span class="pre">[源代码]</span></span></a><a class="headerlink" href="#qlapi.qllog.list" title="永久链接至目标">#</a></dt>
@@ -220,7 +239,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">qltask</div>
+                <div class="title">定时任务</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -231,7 +250,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">qlconfig</div>
+                <div class="title">配置文件</div>
                 
               </div>
             </a>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="索引" href="../../genindex.html" /><link rel="search" title="搜索" href="../../search.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>qlapi.ql_task - 青龙APISDK 0.0.1 文档</title>
+        <title>qlapi.ql_system - 青龙APISDK 0.0.1 文档</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -193,15 +193,15 @@
           </label>
         </div>
         <article role="main">
-          <h1>qlapi.ql_task 源代码</h1><div class="highlight"><pre>
+          <h1>qlapi.ql_system 源代码</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">from</span> <span class="nn">.ql</span> <span class="kn">import</span> <span class="n">ql_api</span>
 
 
-<div class="viewcode-block" id="qltask"><a class="viewcode-back" href="../../task.html#qlapi.qltask">[文档]</a><span class="k">class</span> <span class="nc">qltask</span><span class="p">(</span><span class="n">ql_api</span><span class="p">):</span>
+<div class="viewcode-block" id="qlsystem"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem">[文档]</a><span class="k">class</span> <span class="nc">qlsystem</span><span class="p">(</span><span class="n">ql_api</span><span class="p">):</span>
     <span class="sd">"""</span>
-<span class="sd">    青龙面板api定时任务模块</span>
+<span class="sd">    青龙面板api系统模块</span>
 
 <span class="sd">    url: 青龙面板IP地址(不包含http://)</span>
 
@@ -212,57 +212,63 @@
 <span class="sd">    client_secret: 青龙面板openapi登录密码</span>
 
 <span class="sd">    Usage::</span>
-<span class="sd">        &gt;&gt;&gt; ql_task = qltask(</span>
+<span class="sd">        &gt;&gt;&gt; ql_system = qlsystem(</span>
 <span class="sd">            url="12.22.43.23",</span>
 <span class="sd">            port=5700,</span>
 <span class="sd">            client_id="admin",</span>
 <span class="sd">            client_secret="abcdefg_",</span>
 <span class="sd">        )</span>
-<span class="sd">        ql_task.list()</span>
+<span class="sd">        ql_system.version()</span>
 <span class="sd">    """</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">post</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">client_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
 
-<div class="viewcode-block" id="qltask.add"><a class="viewcode-back" href="../../task.html#qlapi.qltask.add">[文档]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">schedule</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="sd">"""添加定时任务,返回相应状态码以及响应结果或任务ID</span>
+<div class="viewcode-block" id="qlsystem.version"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem.version">[文档]</a>    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">"""</span>
+<span class="sd">        获取面板版本信息</span>
 
-<span class="sd">        :param command: 命令</span>
-<span class="sd">        :param schedule: 定时时间</span>
-<span class="sd">        :param name: 定时任务名称</span>
-<span class="sd">        :param labels: 备注,测试不通过，留空</span>
-<span class="sd">        :return:</span>
-<span class="sd">            成功返回示例 {'code': 200, 'data': 47}</span>
-
-<span class="sd">            失败返回示例 {'code': 500, 'data': 'Validation error'}</span>
+<span class="sd">        :return: 源相应json</span>
 <span class="sd">        """</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/crons"</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">"command"</span><span class="p">:</span> <span class="n">command</span><span class="p">,</span>
-            <span class="s2">"schedule"</span><span class="p">:</span> <span class="n">schedule</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-            <span class="c1"># "labels": labels</span>
-        <span class="p">}</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">{</span><span class="s2">"code"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-                    <span class="s2">"data"</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'data'</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
-                    <span class="p">}</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">{</span>
-                <span class="s2">"code"</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span>
-                <span class="s2">"data"</span><span class="p">:</span> <span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"message"</span><span class="p">)</span>
-            <span class="p">}</span></div>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/system"</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="qltask.task_run"><a class="viewcode-back" href="../../task.html#qlapi.qltask.task_run">[文档]</a>    <span class="k">def</span> <span class="nf">task_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="sd">"""根据id运行任务</span>
+<div class="viewcode-block" id="qlsystem.get_log_remove"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem.get_log_remove">[文档]</a>    <span class="k">def</span> <span class="nf">get_log_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">"""</span>
+<span class="sd">        获取清除面板日志频率</span>
 
-<span class="sd">        :param id: 任务ID列表</span>
-<span class="sd">        :return: 响应码</span>
+<span class="sd">        :return: 源相应json</span>
 <span class="sd">        """</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/crons/run"</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">status_code</span></div></div>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/system/log/remove"</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="qlsystem.change_log_remove"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem.change_log_remove">[文档]</a>    <span class="k">def</span> <span class="nf">change_log_remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">"""</span>
+<span class="sd">        修改清除面板日志频率</span>
+
+<span class="sd">        :param log_remove: 日志清除频率,单位天</span>
+<span class="sd">        :return: 源相应json</span>
+<span class="sd">        """</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/system/log/remove"</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"frequency"</span><span class="p">:</span> <span class="n">frequency</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="qlsystem.update_check"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem.update_check">[文档]</a>    <span class="k">def</span> <span class="nf">update_check</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">"""</span>
+<span class="sd">        检查面板更新</span>
+
+<span class="sd">        :return: 源相应json</span>
+<span class="sd">        """</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/system/update-check"</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="qlsystem.update"><a class="viewcode-back" href="../../system.html#qlapi.qlsystem.update">[文档]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">"""</span>
+<span class="sd">        更新面板</span>
+
+<span class="sd">        :return: 源相应json</span>
+<span class="sd">        """</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s2">/open/system/update"</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span></div></div>
 </pre></div>
         </article>
       </div>
