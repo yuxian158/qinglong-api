@@ -67,3 +67,40 @@ class qltask(ql_api):
         url = f"{self.url}/open/crons/run"
         data = json.dumps(id)
         return self.s.put(url=url, data=data).status_code
+
+    def edit(self, command: str, schedule: str, name: str, id: int) -> dict:
+        """修改定时任务,返回相应状态码以及响应结果或任务信息
+
+        :param command: 命令
+        :param schedule: 定时时间
+        :param name: 定时任务名称
+        :param id: 任务ID
+        :return:
+            成功返回示例 {'code': 200, 'data': {'id': 42, 'name': 'newrefin', 'command': 'task tgrefin.py', 'schedule': '* * * 1 5'}}
+            
+            失败返回示例 {'code': 500, 'data': 'Validation error'}
+        """
+        url = f"{self.url}/open/crons"
+        data = {
+            "command": command,
+            "schedule": schedule,
+            "name": name,
+            "id": id
+        }
+        data = json.dumps(data)
+        res = self.s.put(url=url, data=data)
+        if res.status_code == 200:
+            return {"code": 200,
+                    "data": 
+                        {
+                            "id": res.json().get('data').get('id'),
+                            "name": res.json().get('data').get('name'),
+                            "command": res.json().get('data').get('command'),
+                            "schedule": res.json().get('data').get('schedule')
+                        }
+                    }
+        else:
+            return {
+                "code": res.status_code,
+                "data": res.json().get("message")
+            }
