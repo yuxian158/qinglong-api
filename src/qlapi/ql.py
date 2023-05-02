@@ -6,15 +6,15 @@ from requests import Response
 
 
 class ql_api:
-    def __init__(self, url: str, post: int, client_id: str, client_secret: str):
+    def __init__(self, url: str, port: int, client_id: str, client_secret: str):
         """初始化
 
         :param url: 面板ip地址
-        :param post: 面板端口
+        :param port: 面板端口
         :param client_id: client_id
         :param client_secret: client_secret
         """
-        self.url = f"http://{url}:{post}"
+        self.url = f"http://{url}:{port}"
         self.client_id = client_id
         self.client_secret = client_secret
         self.s = requests.session()

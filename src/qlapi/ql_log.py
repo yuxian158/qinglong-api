@@ -9,7 +9,7 @@ class qllog(ql_api):
 
     url: 青龙面板IP地址(不包含http://)
 
-    post: 青龙面板端口
+    port: 青龙面板端口
 
     client_id: 青龙面板openapi登录用户名
 
@@ -24,8 +24,8 @@ class qllog(ql_api):
         )
         ql_log.list()
     """
-    def __init__(self, url: str, post: int, client_id: str, client_secret: str):
-        super().__init__(url, post, client_id, client_secret)
+    def __init__(self, url: str, port: int, client_id: str, client_secret: str):
+        super().__init__(url, port, client_id, client_secret)
 
     def list(self):
         """获取日志文件列表
