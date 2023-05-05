@@ -24,6 +24,7 @@ class qltask(ql_api):
         )
         ql_task.list()
     """
+
     def __init__(self, url: str, port: int, client_id: str, client_secret: str):
         super().__init__(url, port, client_id, client_secret)
 
@@ -77,7 +78,7 @@ class qltask(ql_api):
         :param id: 任务ID
         :return:
             成功返回示例 {'code': 200, 'data': {'id': 42, 'name': 'newrefin', 'command': 'task tgrefin.py', 'schedule': '* * * 1 5'}}
-            
+
             失败返回示例 {'code': 500, 'data': 'Validation error'}
         """
         url = f"{self.url}/open/crons"
@@ -91,7 +92,7 @@ class qltask(ql_api):
         res = self.s.put(url=url, data=data)
         if res.status_code == 200:
             return {"code": 200,
-                    "data": 
+                    "data":
                         {
                             "id": res.json().get('data').get('id'),
                             "name": res.json().get('data').get('name'),
@@ -99,6 +100,26 @@ class qltask(ql_api):
                             "schedule": res.json().get('data').get('schedule')
                         }
                     }
+        else:
+            return {
+                "code": res.status_code,
+                "data": res.json().get("message")
+            }
+
+    def delete(self, id: str) -> dict:
+        """删除定时任务,返回相应状态码以及响应结果或任务ID
+
+        :param id: 任务ID
+        :return:
+            成功返回示例 {'code': 200}
+
+            失败返回示例 {'code': 400, 'data': 'Validation failed'}
+        """
+        url = f"{self.url}/open/crons"
+        data = json.dumps([id])
+        res = self.s.delete(url=url, data=data)
+        if res.status_code == 200:
+            return {"code": 200}
         else:
             return {
                 "code": res.status_code,
